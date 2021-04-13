@@ -1,17 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace CarLotSimulator
 {
     public class Car
     {
-        public Car()
-        {
-            CarLot.ListOfCars.Add(this);
-        }
-        
-        public Car( int year, string make, string model, string engineNoise, string honkNoise, bool isDrivable)
+        public Car( int year = 0, string make = null, string model = null, string engineNoise = null, string honkNoise = null, bool isDrivable = true)
         {
             this.Year = year;
             this.Make = make;
@@ -19,8 +12,6 @@ namespace CarLotSimulator
             this.EngineNoise = engineNoise;
             this.HonkNoise = honkNoise;
             this.IsDrivable = isDrivable;
-
-            CarLot.ListOfCars.Add(this);
         }
 
         public int Year { get; set; }
@@ -32,12 +23,14 @@ namespace CarLotSimulator
 
         public void MakeEngineNoise ()
         {
-            Console.WriteLine(EngineNoise);
+            if (EngineNoise != null)
+                Console.WriteLine(EngineNoise);
         }
 
         public void MakeHonkNoise ()
         {
-            Console.WriteLine(HonkNoise);
+            if (HonkNoise != null)
+                Console.WriteLine(HonkNoise);
         }
     }
 }
